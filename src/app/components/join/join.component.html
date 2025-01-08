@@ -1,0 +1,30 @@
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="text-center">Join Conference</h2>
+                </div>
+                <div class="card-body">
+                    <form (ngSubmit)="onSubmit()">
+                        <div class="form-group">
+                            <label for="name">Name:</label>
+                            <input type="text" id="name" class="form-control" [(ngModel)]="name" name="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email:</label>
+                            <input type="email" id="email" class="form-control" [(ngModel)]="email" name="email" required>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary btn-block mt-3">Join</button>
+                    </form>
+                    
+                    <div *ngIf="submitted" class="alert alert-success mt-3">
+                        <p>Thank you, {{name}}! You have successfully joined the conference.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

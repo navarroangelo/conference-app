@@ -1,0 +1,51 @@
+<div class="container my-5">
+    <header class="jumbotron text-center bg-light py-5 border-bottom">
+        <img [src]="bannerImage" [alt]="bannerAlt" class="img-fluid rounded mb-4" [style.max-width]="bannerMaxWidth" [style.height]="bannerHeight">
+        <h1 class="display-4">{{ conferenceTitle }}</h1>
+        <p class="lead">{{ conferenceDescription }}</p>
+    </header>
+
+    <section class="my-5 p-4 bg-white border rounded">
+        <div class="row">
+            <div class="col-md-6">
+                <h2>{{ aboutTitle }}</h2>
+                <p>{{ aboutDescription }}</p>
+            </div>
+            <div class="col-md-6">
+                <h2>{{ scheduleTitle }}</h2>
+                <p>{{ scheduleDescription }}</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="my-5 p-4 bg-light border rounded text-center">
+        <h2>{{ registerTitle }}</h2>
+        <p>{{ registerDescription }} <a [href]="registerLink" class="btn btn-primary">Register here</a> to secure your spot today!</p>
+    </section>
+
+    <section class="my-5 p-4 bg-white border rounded text-center">
+        <h2>{{ keynoteTitle }}</h2>
+        <p>{{ keynoteDescription }}</p>
+        <ul class="list-unstyled">
+            <li *ngFor="let speaker of keynoteSpeakers"><strong>{{ speaker.name }}</strong> - {{ speaker.title }}</li>
+        </ul>
+    </section>
+
+    <section class="my-5 p-4 bg-light border rounded text-center">
+        <h2>{{ venueTitle }}</h2>
+        <p>{{ venueDescription }}</p>
+        <img [src]="venueImage" [alt]="venueAlt" class="img-fluid rounded" [style.max-width]="venueMaxWidth" [style.height]="bannerHeight">
+    </section>
+
+    <section class="my-5 p-4 bg-white border rounded text-center">
+        <p>{{ sponsorsDescription }}</p>
+        <ul class="list-unstyled">
+            <li *ngFor="let sponsor of sponsors"><strong>{{ sponsor.level }}:</strong> {{ sponsor.name }}</li>
+        </ul>
+    </section>
+
+    <section class="my-5 p-4 bg-light border rounded text-center">
+        <h2>{{ contactTitle }}</h2>
+        <p>{{ contactDescription }} <a [href]="contactLink" class="btn btn-secondary">Contact Us</a>.</p>
+    </section>
+</div>
