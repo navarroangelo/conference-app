@@ -1,19 +1,27 @@
 import { Component } from '@angular/core';
 
+// IMPORT COMMON MODULE
+import { CommonModule } from '@angular/common';
+
 @Component({
   selector: 'app-join',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './join.component.html',
   styleUrl: './join.component.css'
 })
 export class JoinComponent {
-  // event binding
-  // two-way data binding ngModel
-  // ngIf usage
-formData: any = {};
+  participants = 10478;
+  eventName = 'MICECON 2025';
+  eventDate = '2025-05-25';
+  eventTime = '10:00 AM';
+  comment = '';
 
-onSubmit() {
-  console.log('Form submitted:', this.formData);
-}
+  incrementParticipants() {
+    this.participants++;
+  }
+
+  decrementParticipants() {
+    alert('We hope to see you next time!');
+  }
 }

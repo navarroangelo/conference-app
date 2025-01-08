@@ -1,1 +1,29 @@
-<p>partners works!</p>
+<div *ngIf="partners && partners.length > 0" class="container mt-4 mb-4">
+    <h2 class="text-center section-title">Our Partners</h2>
+    <ul class="list-group">
+        <li *ngFor="let partner of partners" class="list-group-item partner-item">
+            {{ partner.name }}
+        </li>
+    </ul>
+</div>
+<div *ngIf="!partners || partners.length === 0" class="container mt-4 mb-4">
+    <p class="text-center text-muted no-partners-message">No partners available at the moment.</p>
+</div>
+
+<div class="container mt-4 mb-4">
+    <h3 class="text-center section-title">Add a New Partner</h3>
+    <div class="input-group mb-3">
+        <input type="text" [(ngModel)]="newPartnerName" class="form-control" placeholder="Enter Partner Name" />
+        <div class="input-group-append">
+            <button (click)="addPartner()" class="btn btn-primary add-partner-btn">Add Partner</button>
+        </div>
+    </div>
+</div>
+<div *ngIf="partners.length >= 10" class="container mt-4 mb-4">
+    <h3 class="text-center section-title">Top 10 Partners</h3>
+    <ul class="list-group">
+        <li *ngFor="let partner of partners.slice(0, 10)" class="list-group-item top-partner partner-item">
+            {{ partner.name }}
+        </li>
+    </ul>
+</div>
